@@ -76,9 +76,26 @@ document.getElementById("playHintVoiceBtn").addEventListener("click", () => {
 function speakText(text) {
   const utterance = new SpeechSynthesisUtterance(text);
   utterance.lang = "en-US";
-  utterance.rate = 1.0; // 再生速度（調整可能）
+  utterance.rate = 1.0;
   speechSynthesis.speak(utterance);
 }
+
+// Google検索で発音を確認する関数
+function searchPronunciation(text) {
+  const query = encodeURIComponent(text + " pronunciation");
+  const url = "https://www.google.com/search?q=" + query;
+  window.open(url, "_blank");
+}
+
+// Google発音確認ボタンのイベント登録
+document.getElementById("googlePronounceBtn").addEventListener("click", () => {
+  const quiz = quizData[currentIndex];
+  if (quiz.example) {
+    searchPronunciation(quiz.example);
+  } else {
+    alert("例文が見つかりませんでした");
+  }
+});
 
 // 次の問題へ
 document.getElementById("nextBtn").addEventListener("click", () => {

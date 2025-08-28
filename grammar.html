@@ -2,20 +2,58 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>文型の解説</title>
+  <title>英文法の文型解説</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <h1>英文法の基本：5文型とは？</h1>
-  <div class="structure-box">
-    <h2>SVO</h2>
-    <p>主語 + 動詞 + 目的語：She reads a book.</p>
+  <div class="grammar-container">
+    <h1>英文法の基本：5文型とは？</h1>
+
+    <!-- SVO -->
+    <div class="structure-box">
+      <h2>SVO（主語＋動詞＋目的語）</h2>
+      <p id="svoExample">She reads a book.</p>
+      <button onclick="searchPronunciation('She reads a book')">Googleで発音を確認</button>
+    </div>
+
+    <!-- SVC -->
+    <div class="structure-box">
+      <h2>SVC（主語＋動詞＋補語）</h2>
+      <p id="svcExample">The cat is sleepy.</p>
+      <button onclick="searchPronunciation('The cat is sleepy')">Googleで発音を確認</button>
+    </div>
+
+    <!-- SVOO -->
+    <div class="structure-box">
+      <h2>SVOO（主語＋動詞＋間接目的語＋直接目的語）</h2>
+      <p id="svooExample">He gave me a gift.</p>
+      <button onclick="searchPronunciation('He gave me a gift')">Googleで発音を確認</button>
+    </div>
+
+    <!-- SVOC -->
+    <div class="structure-box">
+      <h2>SVOC（主語＋動詞＋目的語＋補語）</h2>
+      <p id="svocExample">They elected him president.</p>
+      <button onclick="searchPronunciation('They elected him president')">Googleで発音を確認</button>
+    </div>
+
+    <!-- SV -->
+    <div class="structure-box">
+      <h2>SV（主語＋動詞）</h2>
+      <p id="svExample">Birds fly.</p>
+      <button onclick="searchPronunciation('Birds fly')">Googleで発音を確認</button>
+    </div>
+
+    <a href="index.html">← クイズに戻る</a>
   </div>
-  <div class="structure-box">
-    <h2>SVC</h2>
-    <p>主語 + 動詞 + 補語：The cat is sleepy.</p>
-  </div>
-  <!-- 他の文型も追加 -->
-  <a href="index.html">← クイズに戻る</a>
+
+  <script>
+    function searchPronunciation(text) {
+      const query = encodeURIComponent(text + " pronunciation");
+      const url = "https://www.google.com/search?q=" + query;
+      window.open(url, "_blank");
+    }
+  </script>
 </body>
 </html>
