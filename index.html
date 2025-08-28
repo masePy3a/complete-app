@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>英単語クイズ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="quiz-container">
+    <h2 id="word">単語</h2>
+    <p id="example">例文</p>
+    <img id="hintImage" src="" alt="関連画像">
+
+    <!-- ヒント機能 -->
+    <div class="hint-section">
+      <button id="showHintBtn">ヒントを見る</button>
+      <button id="playHintVoiceBtn">ヒント音声を聞く</button>
+      <div id="hintText" class="hidden">
+        <p id="hintSentence"></p>
+      </div>
+    </div>
+
+    <!-- 選択肢 -->
+    <div id="choices"></div>
+
+    <!-- 文型解説リンク -->
+    <div id="structure-link">
+      <a href="grammar.html" target="_blank">文型の解説を見る</a>
+    </div>
+
+    <!-- 正誤フィードバック -->
+    <div id="feedback"></div>
+
+    <!-- 正解時のアニメーションと音 -->
+    <div id="celebration" class="hidden">
+      <img src="images/"お祝い.png" alt="正解アニメ">
+      <audio id="correctSound" src="sounds/correct.mp3" preload="auto"></audio>
+    </div>
+
+    <!-- 正誤カウント -->
+    <div class="score">
+      ✅ 正解: <span id="correctCount">0</span>　
+      ❌ 不正解: <span id="incorrectCount">0</span>
+    </div>
+
+    <!-- 次の問題へ -->
+    <button id="nextBtn">次の問題へ</button>
+  </div>
+
+  <!-- スクリプト読み込み -->
+  <script src="data/quizData.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

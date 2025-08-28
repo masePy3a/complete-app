@@ -1,0 +1,60 @@
+body {
+    font-family: sans-serif;
+    background-color: #f0f8ff;
+    margin: 0;
+    padding: 20px;
+}
+
+.quiz-container {
+    max-width: 400px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ccc;
+}
+
+button {
+    margin: 5px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+img {
+    max-width: 100%;
+    margin-top: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+.structure-box {
+    background: #eef;
+    padding: 10px;
+    margin: 10px 0;
+    border-left: 5px solid #88c;
+}
+    #hintImage {
+            width: 80%;
+            /* 横幅を画面の80%に設定 */
+            max-width: 300px;
+            /* 最大サイズを300pxに制限（スマホ対応） */
+            height: auto;
+            /* 高さは自動調整で縦横比を維持 */
+            margin: 10px auto;
+            /* 上下に余白＋中央寄せ */
+            display: block;
+            /* ブロック要素化で中央寄せが効く */
+            border-radius: 8px;
+            /* 角を少し丸めて柔らかい印象に */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            /* 軽い影で立体感 */
+        }
+                #hintText {
+                    background-color: #fef9e7;
+                    border-left: 4px solid #f4d03f;
+                    padding: 10px;
+                    margin-top: 10px;
+                    border-radius: 6px;
+                }
