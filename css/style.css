@@ -127,3 +127,18 @@ button:disabled {
         max-width: none;
     }
 }
+body {
+    font-family: sans-serif;
+    background: url("../images/1.png") no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 20px;
+}
+#celebration img {
+    width: 60%;
+    max-width: 250px;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+    border-radius: 10px;
+}
