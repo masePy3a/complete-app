@@ -39,12 +39,6 @@ button:disabled {
     cursor: not-allowed;
 }
 
-/* 画像の基本スタイル */
-img {
-    max-width: 100%;
-    margin-top: 10px;
-}
-
 /* ヒント画像の詳細スタイル */
 #hintImage {
     width: 80%;
@@ -94,6 +88,27 @@ img {
 /* ヒントセクションの余白 */
 .hint-section {
     margin-top: 15px;
+}
+
+/* 発音確認ボタンセクション（画面下部） */
+.pronunciation-links {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pronunciation-links button {
+    margin: 6px;
+    padding: 10px 16px;
+    font-size: 15px;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.pronunciation-links button:hover {
+    background-color: #1976D2;
 }
 
 /* スマホ対応（レスポンシブ） */

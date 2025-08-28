@@ -8,11 +8,12 @@
 </head>
 <body>
   <div class="quiz-container">
+    <!-- 単語と例文 -->
     <h2 id="word">単語</h2>
     <p id="example">例文</p>
+
+    <!-- ヒント画像 -->
     <img id="hintImage" src="" alt="関連画像">
-    <!-- Google発音確認ボタン -->
-<button id="googlePronounceBtn">（音声機能しない方はこちらGoogle、forvoにリンク）で発音を確認</button>
 
     <!-- ヒント機能 -->
     <div class="hint-section">
@@ -48,6 +49,12 @@
 
     <!-- 次の問題へ -->
     <button id="nextBtn">次の問題へ</button>
+
+    <!-- 発音確認リンク（画面下部に配置） -->
+    <div class="pronunciation-links">
+      <button id="googlePronounceBtn">Googleで発音を確認</button>
+      <button id="forvoPronounceBtn">Forvoでネイティブ発音を確認</button>
+    </div>
   </div>
 
   <!-- スクリプト読み込み -->
