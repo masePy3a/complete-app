@@ -43,8 +43,12 @@ function handleAnswer(selected) {
 
     // 正解音声の再生（再生位置をリセット）
     const sound = document.getElementById("correctSound");
-    sound.currentTime = 0;
-    sound.play();
+    if (sound) {
+      sound.currentTime = 0;
+      sound.play().catch(() => {
+        console.warn("音声再生がブロックされました");
+      });
+    }
 
     feedback.textContent = "🎉 正解！";
   } else {
@@ -87,13 +91,18 @@ function searchPronunciation(text) {
   window.open(url, "_blank");
 }
 
-// Google発音確認ボタンのイベント登録
-document.getElementById("googlePronounceBtn").addEventListener("click", () => {
-  const quiz = quizData[currentIndex];
-  if (quiz.example) {
-    searchPronunciation(quiz.example);
-  } else {
-    alert("例文が見つかりませんでした");
+// Google発音確認ボタンのイベント登録（HTML読み込み後に実行）
+document.addEventListener("DOMContentLoaded", () => {
+  const googleBtn = document.getElementById("googlePronounceBtn");
+  if (googleBtn) {
+    googleBtn.addEventListener("click", () => {
+      const quiz = quizData[currentIndex];
+      if (quiz.example) {
+        searchPronunciation(quiz.example);
+      } else {
+        alert("例文が見つかりませんでした");
+      }
+    });
   }
 });
 
@@ -108,4 +117,4 @@ document.getElementById("nextBtn").addEventListener("click", () => {
 });
 
 // 初期読み込み
-loadQuiz();
+document.addEventListener("DOMContentLoaded", loadQuiz);
