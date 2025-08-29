@@ -1,4 +1,5 @@
 /* 全体の背景とフォント */
+/* 全体の背景とフォント */
 body {
     margin: 0;
     padding: 0;
@@ -123,10 +124,12 @@ button:disabled {
     display: none;
 }
 
-/* スマホ対応 */
+/* スマホ対応（レスポンシブ） */
 @media screen and (max-width: 480px) {
     .quiz-container {
         padding: 15px;
+        width: 95%;
+        margin: 20px auto;
     }
 
     button {
@@ -137,5 +140,22 @@ button:disabled {
     #hintImage {
         width: 100%;
         max-width: none;
+    }
+
+    .structure-box {
+        font-size: 13px;
+    }
+
+    #feedback {
+        font-size: 16px;
+    }
+
+    .score {
+        font-size: 14px;
+    }
+
+    .pronunciation-links button {
+        font-size: 14px;
+        padding: 8px 12px;
     }
 }
