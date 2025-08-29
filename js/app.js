@@ -6,9 +6,10 @@ let incorrectCount = 0;
 function loadQuiz() {
   const quiz = quizData[currentIndex];
 
-  // 単語と例文
+  // 単語・例文・文型の表示
   document.getElementById("word").textContent = quiz.word;
   document.getElementById("example").textContent = quiz.example;
+  document.getElementById("structureText").textContent = `文型：${quiz.structure}`;
 
   // ヒント画像とテキストの初期化
   document.getElementById("hintImage").src = "";
@@ -20,7 +21,7 @@ function loadQuiz() {
   document.getElementById("feedback").textContent = "";
   document.getElementById("celebration").classList.add("hidden");
 
-  // 選択肢の生成
+  // 選択肢の生成（日本語のみ）
   const choicesDiv = document.getElementById("choices");
   choicesDiv.innerHTML = "";
   quiz.choices.forEach(choice => {
@@ -50,7 +51,10 @@ function handleAnswer(selected) {
       });
     }
 
-    feedback.textContent = "🎉 正解！";
+    // 正解フィードバックと画像表示
+    feedback.textContent = `🎉 正解！「${quiz.correct}」`;
+    document.getElementById("hintImage").src = quiz.hintImage;
+    document.getElementById("hintImage").style.display = "block";
   } else {
     incorrectCount++;
     document.getElementById("incorrectCount").textContent = incorrectCount;
@@ -64,9 +68,10 @@ function handleAnswer(selected) {
 // ヒント表示ボタン
 document.getElementById("showHintBtn").addEventListener("click", () => {
   const quiz = quizData[currentIndex];
+  document.getElementById("hintSentence").textContent = quiz.example;
+  document.getElementById("structureText").textContent = `文型：${quiz.structure}`;
   document.getElementById("hintImage").src = quiz.hintImage;
   document.getElementById("hintImage").style.display = "block";
-  document.getElementById("hintSentence").textContent = quiz.example;
   document.getElementById("hintText").classList.remove("hidden");
 });
 
@@ -99,42 +104,37 @@ function searchForvoPronunciation(word) {
 }
 
 // 発音確認ボタンのイベント登録
-document.addEventListener("DOMContentLoaded", () => {
-  const googleBtn = document.getElementById("googlePronounceBtn");
-  const forvoBtn = document.getElementById("forvoPronounceBtn");
-
-  if (googleBtn) {
-    googleBtn.addEventListener("click", () => {
-      const quiz = quizData[currentIndex];
-      if (quiz.example) {
-        searchGooglePronunciation(quiz.example);
-      } else {
-        alert("例文が見つかりませんでした");
-      }
-    });
+document.getElementById("googlePronounceBtn").addEventListener("click", () => {
+  const quiz = quizData[currentIndex];
+  if (quiz.example) {
+    searchGooglePronunciation(quiz.example);
+  } else {
+    alert("例文が見つかりませんでした");
   }
-
-  if (forvoBtn) {
-    forvoBtn.addEventListener("click", () => {
-      const quiz = quizData[currentIndex];
-      if (quiz.word) {
-        searchForvoPronunciation(quiz.word);
-      } else {
-        alert("単語が見つかりませんでした");
-      }
-    });
-  }
-
-  // 初期読み込み
-  loadQuiz();
 });
 
-// 次の問題へ
+document.getElementById("forvoPronounceBtn").addEventListener("click", () => {
+  const quiz = quizData[currentIndex];
+  if (quiz.word) {
+    searchForvoPronunciation(quiz.word);
+  } else {
+    alert("単語が見つかりませんでした");
+  }
+});
+
+// 次の問題へ（終了後は最初に戻る）
 document.getElementById("nextBtn").addEventListener("click", () => {
   currentIndex++;
   if (currentIndex < quizData.length) {
     loadQuiz();
   } else {
     alert("すべての問題が終了しました！");
+    currentIndex = 0; // ← 最初に戻す
+    loadQuiz();
   }
+});
+
+// 初期読み込み
+document.addEventListener("DOMContentLoaded", () => {
+  loadQuiz();
 });

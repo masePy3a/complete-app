@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>英単語クイズ</title>
+  <title>意味設計クイズ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -12,13 +12,16 @@
     <h2 id="word">単語</h2>
     <p id="example">例文</p>
 
-    <!-- ヒント画像 -->
-    <img id="hintImage" src="" alt="関連画像">
+    <!-- 文型表示 -->
+    <div id="structureText" class="structure-box"></div>
 
-    <!-- ヒント機能 -->
+    <!-- ヒント画像（正解時に表示） -->
+    <img id="hintImage" src="" alt="ヒント画像">
+
+    <!-- ヒント表示ボタン -->
     <div class="hint-section">
       <button id="showHintBtn">ヒントを見る</button>
-      <button id="playHintVoiceBtn">ヒント音声を聞く</button>
+      <button id="playHintVoiceBtn">例文を音声で聞く</button>
       <div id="hintText" class="hidden">
         <p id="hintSentence"></p>
       </div>
@@ -27,15 +30,10 @@
     <!-- 選択肢 -->
     <div id="choices"></div>
 
-    <!-- 文型解説リンク -->
-    <div id="structure-link">
-      <a href="grammar.html" target="_blank">文型の解説を見る</a>
-    </div>
-
     <!-- 正誤フィードバック -->
     <div id="feedback"></div>
 
-    <!-- 正解時のアニメーションと音 -->
+    <!-- 正解アニメーションと音 -->
     <div id="celebration" class="hidden">
       <img src="images/お祝い.png" alt="正解アニメ">
       <audio id="correctSound" src="sounds/correct.mp3" preload="auto"></audio>
@@ -50,7 +48,7 @@
     <!-- 次の問題へ -->
     <button id="nextBtn">次の問題へ</button>
 
-    <!-- 発音確認リンク（画面下部に配置） -->
+    <!-- 発音確認リンク -->
     <div class="pronunciation-links">
       <button id="googlePronounceBtn">Googleで発音を確認</button>
       <button id="forvoPronounceBtn">Forvoでネイティブ発音を確認</button>
