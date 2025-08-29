@@ -1,24 +1,25 @@
 /* 全体の背景とフォント */
 body {
-    font-family: sans-serif;
-    background-color: #f0f8ff;
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    font-family: sans-serif;
+    background: url("../images/1.png") no-repeat center center fixed;
+    background-size: cover;
 }
 
 /* クイズカードの中央寄せと装飾 */
 .quiz-container {
-    max-width: 400px;
-    margin: auto;
-    background: white;
+    max-width: 500px;
+    margin: 40px auto;
+    background: rgba(255, 255, 255, 0.95);
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px #ccc;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 /* ボタンの基本スタイル */
 button {
-    margin: 5px;
+    margin: 6px;
     padding: 10px 16px;
     font-size: 16px;
     background-color: #4CAF50;
@@ -33,24 +34,23 @@ button:hover {
     background-color: #45a049;
 }
 
-/* 選択肢ボタンの無効化スタイル */
 button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
 }
 
-/* ヒント画像の詳細スタイル */
+/* ヒント画像 */
 #hintImage {
     width: 80%;
     max-width: 300px;
     height: auto;
-    margin: 10px auto;
     display: block;
+    margin: 10px auto;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* ヒントテキストの装飾 */
+/* ヒントテキスト */
 #hintText {
     background-color: #fef9e7;
     border-left: 4px solid #f4d03f;
@@ -59,38 +59,45 @@ button:disabled {
     border-radius: 6px;
 }
 
-/* 文型解説ボックス（grammar.html用） */
+/* 文型表示 */
 .structure-box {
-    background: #eef;
+    background-color: #eef;
     padding: 10px;
     margin: 10px 0;
     border-left: 5px solid #88c;
+    font-size: 14px;
+    color: #333;
 }
 
-/* 正誤カウントのスタイル */
+/* 正誤カウント */
 .score {
     margin-top: 15px;
     font-size: 16px;
 }
 
-/* フィードバック表示 */
+/* フィードバック */
 #feedback {
     font-size: 18px;
     font-weight: bold;
     margin: 10px 0;
 }
 
-/* 正解アニメーションの非表示制御 */
-.hidden {
-    display: none;
+/* 正解アニメーション */
+#celebration img {
+    width: 60%;
+    max-width: 250px;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+    border-radius: 10px;
 }
 
-/* ヒントセクションの余白 */
+/* ヒントセクション */
 .hint-section {
     margin-top: 15px;
 }
 
-/* 発音確認ボタンセクション（画面下部） */
+/* 発音確認ボタン */
 .pronunciation-links {
     margin-top: 20px;
     text-align: center;
@@ -111,7 +118,12 @@ button:disabled {
     background-color: #1976D2;
 }
 
-/* スマホ対応（レスポンシブ） */
+/* 非表示制御 */
+.hidden {
+    display: none;
+}
+
+/* スマホ対応 */
 @media screen and (max-width: 480px) {
     .quiz-container {
         padding: 15px;
@@ -126,19 +138,4 @@ button:disabled {
         width: 100%;
         max-width: none;
     }
-}
-body {
-    font-family: sans-serif;
-    background: url("../images/1.png") no-repeat center center fixed;
-    background-size: cover;
-    margin: 0;
-    padding: 20px;
-}
-#celebration img {
-    width: 60%;
-    max-width: 250px;
-    height: auto;
-    display: block;
-    margin: 10px auto;
-    border-radius: 10px;
 }
