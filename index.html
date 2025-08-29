@@ -2,61 +2,73 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>意味設計クイズ</title>
+  <title>意味設計クイズ - メイン画面</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background: url("images/1.png") no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .start-box {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      max-width: 90%;
+      width: 400px;
+    }
+
+    .start-box h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .start-box a {
+      display: inline-block;
+      padding: 12px 24px;
+      font-size: 18px;
+      background-color: #4CAF50;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    .start-box a:hover {
+      background-color: #45a049;
+    }
+
+    @media screen and (max-width: 480px) {
+      .start-box {
+        padding: 20px;
+        width: 90%;
+      }
+
+      .start-box h1 {
+        font-size: 20px;
+      }
+
+      .start-box a {
+        font-size: 16px;
+        padding: 10px 20px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="quiz-container">
-    <!-- 単語と例文 -->
-    <h2 id="word">単語</h2>
-    <p id="example">例文</p>
-
-    <!-- 文型表示 -->
-    <div id="structureText" class="structure-box"></div>
-
-    <!-- ヒント画像（正解時に表示） -->
-    <img id="hintImage" src="" alt="ヒント画像">
-
-    <!-- ヒント表示ボタン -->
-    <div class="hint-section">
-      <button id="showHintBtn">ヒントを見る</button>
-      <button id="playHintVoiceBtn">例文を音声で聞く</button>
-      <div id="hintText" class="hidden">
-        <p id="hintSentence"></p>
-      </div>
-    </div>
-
-    <!-- 選択肢 -->
-    <div id="choices"></div>
-
-    <!-- 正誤フィードバック -->
-    <div id="feedback"></div>
-
-    <!-- 正解アニメーションと音 -->
-    <div id="celebration" class="hidden">
-      <img src="images/お祝い.png" alt="正解アニメ">
-      <audio id="correctSound" src="sounds/correct.mp3" preload="auto"></audio>
-    </div>
-
-    <!-- 正誤カウント -->
-    <div class="score">
-      ✅ 正解: <span id="correctCount">0</span>　
-      ❌ 不正解: <span id="incorrectCount">0</span>
-    </div>
-
-    <!-- 次の問題へ -->
-    <button id="nextBtn">次の問題へ</button>
-
-    <!-- 発音確認リンク -->
-    <div class="pronunciation-links">
-      <button id="googlePronounceBtn">Googleで発音を確認</button>
-      <button id="forvoPronounceBtn">Forvoでネイティブ発音を確認</button>
-    </div>
+  <div class="start-box">
+    <h1>意味設計クイズへようこそ</h1>
+    <a href="quiz.html">クイズを始める</a>
   </div>
-
-  <!-- スクリプト読み込み -->
-  <script src="data/quizData.js"></script>
-  <script src="js/app.js"></script>
 </body>
 </html>
